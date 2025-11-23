@@ -8,36 +8,36 @@ This system performs three main tasks:
 
 1. Live Network Traffic Capture
 Captures packets from a chosen network interface using PyShark, extracting:
-1. Timestamp
-2. Source IP
-3. Destination IP
-4. Protocol
+   Timestamp
+   Source IP
+   Destination IP
+   Protocol
 Captured data is saved into traffic_log.csv, allowing further analysis.
 (Implementation: network_detection.py)
 
 2. Automated Traffic Summarization
-1. Processes the packet log and generates:
-2. Total traffic count
-3. Unique source/destination IPs
-4. Observed protocol diversity
-5. Time range of capture
+   Processes the packet log and generates:
+   Total traffic count
+   Unique source/destination IPs
+   Observed protocol diversity
+   Time range of capture
 (Implementation: LLM_summary.py)
 
 3. LLM-Based Traffic Interpretation
 The summary is sent to an LLM (via Groq API) to provide:
-1. Behavioral insights
-2. Suspicious activity detection
-3. Protocol usage patterns
-4. Potential anomalies
+   Behavioral insights
+   Suspicious activity detection
+   Protocol usage patterns
+   Potential anomalies
 This forms the core intelligence layer of the system.
 (Implementation: LLM_summary.py)
 
 4. Main Orchestration Script
 main.py ties everything together:
-1. Runs the capture
-2. Generates summaries
-3. Triggers the AI analysis
-4. Displays all results cleanly
+   Runs the capture
+   Generates summaries
+   Triggers the AI analysis
+   Displays all results cleanly
 
 File Structure
 ├── main.py
