@@ -1,75 +1,81 @@
-Network Traffic Capture & LLM-Based Analysis (PBL Project)
+# **Network Traffic Capture & LLM-Based Analysis (PBL Project)**
 
-This Project-Based Learning (PBL) project implements an automated system for capturing live network traffic, logging it in a structured format, and generating an AI-driven analytical report. It provides a practical understanding of packet-level monitoring and showcases how modern LLMs can enhance network forensics.
+This Project-Based Learning (PBL) project implements a system that captures live network traffic, logs it in a structured format, and generates an AI-driven analytical report. It provides hands-on exposure to packet-level monitoring and demonstrates how modern LLMs can support network forensics and anomaly detection.
 
-Project Overview
+## **📌 Project Overview**
 
-This system performs three main tasks:
+### **1. Live Network Traffic Capture**
+The system uses **PyShark** to monitor a selected network interface and extract:
+- Timestamp  
+- Source IP  
+- Destination IP  
+- Protocol  
 
-1. Live Network Traffic Capture
-Captures packets from a chosen network interface using PyShark, extracting:
-   Timestamp
-   Source IP
-   Destination IP
-   Protocol
-Captured data is saved into traffic_log.csv, allowing further analysis.
-(Implementation: network_detection.py)
+All captured packets are written into `traffic_log.csv`.
 
-2. Automated Traffic Summarization
-   Processes the packet log and generates:
-   Total traffic count
-   Unique source/destination IPs
-   Observed protocol diversity
-   Time range of capture
-(Implementation: LLM_summary.py)
+### **2. Automated Traffic Summarization**
+Once the capture completes, the system analyzes the CSV file and produces:
+- Total number of records  
+- Count of unique source & destination IPs  
+- Number of distinct protocols  
+- First and last packet timestamps  
 
-3. LLM-Based Traffic Interpretation
-The summary is sent to an LLM (via Groq API) to provide:
-   Behavioral insights
-   Suspicious activity detection
-   Protocol usage patterns
-   Potential anomalies
-This forms the core intelligence layer of the system.
-(Implementation: LLM_summary.py)
+### **3. LLM-Based Traffic Interpretation**
+The generated summary is sent to an LLM (via the Groq API) to interpret:
+- Whether the traffic looks normal or unusual  
+- Possible behaviors occurring on the network  
+- Any red flags or anomalies worth attention  
 
-4. Main Orchestration Script
-main.py ties everything together:
-   Runs the capture
-   Generates summaries
-   Triggers the AI analysis
-   Displays all results cleanly
+### **4. Core Execution Flow**
+The `main.py` script orchestrates:
+1. Live capture  
+2. Summary generation  
+3. AI analysis  
+4. Displaying final insights  
 
-File Structure
+## **📂 Project Structure**
+
+```
 ├── main.py
 ├── network_detection.py
 ├── LLM_summary.py
-├── traffic_log.csv (generated after capture)
+├── traffic_log.csv   (auto-generated)
 ├── requirements.txt
+```
 
-Requirements
+## **⚙️ Installation & Requirements**
+
 Install dependencies:
+
+```
 pip install -r requirements.txt
+```
 
+This project uses:
+- **pyshark**  
+- **groq**  
+- **python-dotenv**
 
-The project uses:
-pyshark — for packet capturing
-groq — for LLM API access
-python-dotenv — for environment variable management
+## **🚀 Running the Project**
 
-How to Run
-Ensure your system supports packet capture (Wireshark/Npcap may be required on Windows).
-Set your Groq API key:
-export GROQ_API_KEY="your_key_here"
+1. Ensure your system supports packet capture  
+   (Windows users may need Npcap installed).  
+2. Set your Groq API key:  
+   ```
+   export GROQ_API_KEY="your_key_here"
+   ```
+3. Run the main script:  
+   ```
+   python main.py
+   ```
 
-Run the main script:
-python main.py 
+## **🎯 Educational Purpose (PBL)**
 
-Purpose of This PBL Project
-This project helps students understand:
-Real-time network packet analysis
-Logging & summarization of traffic
-AI-augmented security analysis
+This PBL project helps students understand:
 
-Combining cybersecurity tools with modern LLM workflows
+- Real-time network packet capturing  
+- Traffic logging and summarization  
+- Integration of cybersecurity tools with LLMs  
+- Automated anomaly detection workflows  
 
-It demonstrates how automated monitoring and intelligent analysis can support network defense and incident response.
+It serves as a practical module for cybersecurity and networking students exploring modern AI-assisted network analysis.
