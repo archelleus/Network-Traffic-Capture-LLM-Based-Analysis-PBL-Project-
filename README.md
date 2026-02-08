@@ -71,11 +71,10 @@ This project uses:
 
 ## **🎯 Educational Purpose (PBL)**
 
-This PBL project helps students understand:
+This PBL project helped me understand:
 
 - Real-time network packet capturing  
 - Traffic logging and summarization  
 - Integration of cybersecurity tools with LLMs  
 - Automated anomaly detection workflows  
 
-It serves as a practical module for cybersecurity and networking students exploring modern AI-assisted network analysis.
